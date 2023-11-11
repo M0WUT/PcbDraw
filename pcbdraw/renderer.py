@@ -196,11 +196,11 @@ class PcbnewSession:
         mainWindow = self.waitForWindow("pcb editor")
         try:
             self._xdotool(["key", "--window", mainWindow, "alt+3"])
-            id = self.waitForWindow("3d viewer", 15)
+            id = self.waitForWindow("3d viewer", 300)
         except TimeoutError:
             # No window shown, try it once more:
             self._xdotool(["key", "--window", mainWindow, "alt+3"])
-            id = self.waitForWindow("3d viewer", 15)
+            id = self.waitForWindow("3d viewer", 300)
         try:
             session = ViewerSession(self, id)
             session.waitForResponsiveness()
